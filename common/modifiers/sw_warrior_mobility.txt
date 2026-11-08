@@ -1,4 +1,4 @@
-# Supreme Warriors - permanent army mobility doctrine (CM-18).
+﻿# Supreme Warriors - permanent army mobility doctrine (CM-18).
 # Character-scoped only; do not put movement on men_at_arms_types.
 
 sw_warrior_mobility_modifier = {
