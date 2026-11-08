@@ -1,0 +1,47 @@
+﻿# Player convenience: muster one Supreme Warriors regiment without Military UI grind.
+# Cavalry (supreme_riders) remains Military UI only this pass.
+
+supreme_muster_warriors_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	decision_group_type = major
+	desc = supreme_muster_warriors_decision_desc
+	selection_tooltip = supreme_muster_warriors_decision_tooltip
+	confirm_text = supreme_muster_warriors_decision_confirm
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_alive = yes
+		is_ai = no
+		is_ruler = yes
+	}
+
+	is_valid = {
+		number_maa_regiments_of_type = {
+			target = supreme_warriors
+			value < 3
+		}
+	}
+
+	cost = {
+		gold = 50
+	}
+
+	effect = {
+		create_maa_regiment = {
+			type = supreme_warriors
+			check_can_recruit = no
+			size = 1
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}

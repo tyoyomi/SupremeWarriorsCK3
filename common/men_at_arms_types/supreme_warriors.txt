@@ -1,0 +1,127 @@
+﻿# Elite player-only heavy infantry. Stats are intentionally OP but combat-math-safe.
+# Provision cost mirrors vanilla expensive infantry (house_guard band).
+@provisions_cost_supreme_warriors = 12
+# Cavalry premium between expensive infantry (12) and cavalry-expensive band.
+@provisions_cost_supreme_riders = 18
+
+supreme_warriors = {
+	type = heavy_infantry
+
+	can_recruit = {
+		is_ai = no
+	}
+
+	damage = 300
+	toughness = 220
+	pursuit = 40
+	screen = 40
+
+	stack = 100
+	max_regiments = 3
+
+	counters = {
+		pikemen = 1
+		archers = 1
+		skirmishers = 1
+		heavy_cavalry = 1
+		light_cavalry = 1
+	}
+
+	terrain_bonus = {
+		plains = { damage = 20 toughness = 15 }
+		farmlands = { damage = 20 toughness = 15 }
+		drylands = { damage = 20 toughness = 15 }
+	}
+
+	winter_bonus = {
+		mild_winter = { toughness = 10 }
+		normal_winter = { toughness = 10 }
+		harsh_winter = { toughness = 5 }
+	}
+
+	siege_value = 0.5
+	siege_tier = 3
+
+	buy_cost = { gold = 50 }
+	low_maintenance_cost = { gold = 0.5 }
+	high_maintenance_cost = { gold = 2 }
+	provision_cost = @provisions_cost_supreme_warriors
+
+	allowed_in_hired_troops = no
+	ai_quality = { value = 0 }
+
+	icon = heavy_infantry
+
+	illustration = {
+		trigger = {
+			should_use_asian_maa_graphics = yes
+		}
+		reference = heavy_infantry_asia
+	}
+
+	illustration = {
+		reference = heavy_infantry
+	}
+}
+
+# Elite player-only heavy cavalry companion. Under foot SW regiment index; CM-3 soft ceiling.
+supreme_riders = {
+	type = heavy_cavalry
+
+	can_recruit = {
+		is_ai = no
+	}
+
+	damage = 450
+	toughness = 160
+	pursuit = 50
+	screen = 30
+
+	stack = 50
+	max_regiments = 2
+
+	counters = {
+		archers = 1
+		gunpowder = 1
+		skirmishers = 1
+		light_cavalry = 1
+	}
+
+	terrain_bonus = {
+		plains = { damage = 25 }
+		drylands = { damage = 25 }
+		hills = { damage = -15 }
+		mountains = { damage = -50 }
+		desert_mountains = { damage = -50 }
+		wetlands = { damage = -60 toughness = -10 pursuit = -10 }
+	}
+
+	winter_bonus = {
+		normal_winter = { damage = -10 toughness = -5 }
+		harsh_winter = { damage = -20 toughness = -10 }
+	}
+
+	siege_value = 0.2
+	siege_tier = 1
+
+	buy_cost = { gold = 75 }
+	low_maintenance_cost = { gold = 1 }
+	high_maintenance_cost = { gold = 3 }
+	provision_cost = @provisions_cost_supreme_riders
+
+	allowed_in_hired_troops = no
+	ai_quality = { value = 0 }
+
+	icon = heavy_cavalry
+
+	illustration = {
+		trigger = {
+			should_use_asian_maa_graphics = yes
+		}
+		reference = heavy_cavalry_asia
+	}
+
+	illustration = {
+		reference = heavy_cavalry
+	}
+}
