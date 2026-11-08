@@ -8,3 +8,12 @@ sw_warrior_mobility_modifier = {
 	embarkation_cost_mult = -0.75
 	winter_movement_speed = 0.25
 }
+
+# Siege tempo + supply immunity for player armies with Supreme Warriors/Riders.
+sw_warrior_siege_supply_modifier = {
+	icon = martial_positive
+	siege_phase_time = -0.75
+	supply_duration = 100
+	supply_limit_mult = 5
+	hostile_county_attrition = -1
+}

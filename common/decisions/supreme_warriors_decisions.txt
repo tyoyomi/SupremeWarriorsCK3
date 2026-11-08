@@ -106,3 +106,63 @@ sw_warrior_mobility_decision = {
 	}
 }
 
+# Permanent siege speed + supply immunity doctrine. One-shot via modifier gate.
+
+sw_warrior_siege_supply_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	decision_group_type = major
+	desc = sw_warrior_siege_supply_decision_desc
+	selection_tooltip = sw_warrior_siege_supply_decision_tooltip
+	confirm_text = sw_warrior_siege_supply_decision_confirm
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_alive = yes
+		is_ai = no
+		is_ruler = yes
+		NOT = { has_character_modifier = sw_warrior_siege_supply_modifier }
+		OR = {
+			number_maa_regiments_of_type = {
+				target = supreme_warriors
+				value >= 1
+			}
+			number_maa_regiments_of_type = {
+				target = supreme_riders
+				value >= 1
+			}
+		}
+	}
+
+	is_valid = {
+		NOT = { has_character_modifier = sw_warrior_siege_supply_modifier }
+		OR = {
+			number_maa_regiments_of_type = {
+				target = supreme_warriors
+				value >= 1
+			}
+			number_maa_regiments_of_type = {
+				target = supreme_riders
+				value >= 1
+			}
+		}
+	}
+
+	effect = {
+		add_character_modifier = {
+			modifier = sw_warrior_siege_supply_modifier
+			days = -1
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
