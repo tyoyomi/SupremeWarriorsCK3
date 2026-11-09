@@ -1,0 +1,10 @@
+﻿# Supreme Warriors — Warriors' Banner aura while any elite MAA is on the roster.
+
+sw_warriors_banner_modifier = {
+	icon = martial_positive
+	advantage = 8
+	maa_damage_mult = 0.20
+	levy_damage_mult = 0.10
+	knight_effectiveness_mult = 0.25
+	monthly_prestige = 0.25
+}

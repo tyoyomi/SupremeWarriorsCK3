@@ -1,0 +1,24 @@
+# Supreme Warriors — optional fourth archetype module (one live type at a time).
+
+sw_rule_fourth_archetype = {
+	categories = {
+		tweaks
+	}
+
+	default = sw_rule_fourth_archetype_off
+
+	sw_rule_fourth_archetype_off = {
+	}
+
+	sw_rule_fourth_archetype_archers = {
+		flag = blocks_achievements
+	}
+
+	sw_rule_fourth_archetype_elephants = {
+		flag = blocks_achievements
+	}
+
+	sw_rule_fourth_archetype_camel = {
+		flag = blocks_achievements
+	}
+}
