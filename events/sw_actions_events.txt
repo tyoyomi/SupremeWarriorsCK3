@@ -1,0 +1,112 @@
+namespace = sw_actions
+
+# Supreme Warriors Actions hub â€” Done first (SS/EC craft).
+# Former major verbs: muster regiment, mobility, siege & supply, stand doctrines.
+# Event options hide when gated (engine has no grey-out for event options).
+
+sw_actions.1001 = {
+	type = character_event
+	title = sw_actions.1001.t
+	theme = martial
+
+	desc = sw_actions.1001.desc
+
+	# Done first â€” closes hub
+	option = {
+		name = sw_actions.1001.close
+		custom_tooltip = sw_actions.tt.close
+	}
+
+	# Muster Supreme Warriors
+	option = {
+		name = sw_actions.1001.muster
+		trigger = {
+			number_maa_regiments_of_type = {
+				target = supreme_warriors
+				value < 3
+			}
+		}
+		cost = {
+			gold = 50
+		}
+		custom_tooltip = supreme_muster_warriors_decision_tooltip
+		create_maa_regiment = {
+			type = supreme_warriors
+			check_can_recruit = no
+			size = 1
+		}
+		trigger_event = sw_actions.1001
+	}
+
+	# Doctrine of Supreme Mobility
+	option = {
+		name = sw_actions.1001.mobility
+		trigger = {
+			NOT = { has_character_modifier = sw_warrior_mobility_modifier }
+			OR = {
+				number_maa_regiments_of_type = {
+					target = supreme_warriors
+					value >= 1
+				}
+				number_maa_regiments_of_type = {
+					target = supreme_riders
+					value >= 1
+				}
+			}
+		}
+		custom_tooltip = sw_warrior_mobility_decision_tooltip
+		add_character_modifier = {
+			modifier = sw_warrior_mobility_modifier
+			days = -1
+		}
+		trigger_event = sw_actions.1001
+	}
+
+	# Doctrine of Supreme Siege & Supply
+	option = {
+		name = sw_actions.1001.siege_supply
+		trigger = {
+			NOT = { has_character_modifier = sw_warrior_siege_supply_modifier }
+			OR = {
+				number_maa_regiments_of_type = {
+					target = supreme_warriors
+					value >= 1
+				}
+				number_maa_regiments_of_type = {
+					target = supreme_riders
+					value >= 1
+				}
+			}
+		}
+		custom_tooltip = sw_warrior_siege_supply_decision_tooltip
+		add_character_modifier = {
+			modifier = sw_warrior_siege_supply_modifier
+			days = -1
+		}
+		trigger_event = sw_actions.1001
+	}
+
+	# Doctrine of Supreme Stand (next-iter; rehomed off Major)
+	option = {
+		name = sw_actions.1001.stand
+		trigger = {
+			NOT = { has_character_modifier = sw_warrior_stand_modifier }
+			OR = {
+				number_maa_regiments_of_type = {
+					target = supreme_warriors
+					value >= 1
+				}
+				number_maa_regiments_of_type = {
+					target = supreme_riders
+					value >= 1
+				}
+			}
+		}
+		custom_tooltip = sw_warrior_stand_decision_tooltip
+		add_character_modifier = {
+			modifier = sw_warrior_stand_modifier
+			days = -1
+		}
+		trigger_event = sw_actions.1001
+	}
+}
