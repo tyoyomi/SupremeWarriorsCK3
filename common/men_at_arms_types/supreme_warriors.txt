@@ -3,6 +3,9 @@
 @provisions_cost_supreme_warriors = 12
 # Cavalry premium between expensive infantry (12) and cavalry-expensive band.
 @provisions_cost_supreme_riders = 18
+@provisions_cost_supreme_archers = 14
+@provisions_cost_supreme_elephants = 22
+@provisions_cost_supreme_camels = 16
 
 supreme_warriors = {
 	type = heavy_infantry
@@ -123,5 +126,165 @@ supreme_riders = {
 
 	illustration = {
 		reference = heavy_cavalry
+	}
+}
+
+# Optional fourth archetype — Archers (game rule sw_rule_fourth_archetype_archers).
+supreme_archers = {
+	type = archers
+
+	can_recruit = {
+		is_ai = no
+		has_game_rule = sw_rule_fourth_archetype_archers
+	}
+
+	damage = 280
+	toughness = 120
+	pursuit = 25
+	screen = 45
+
+	stack = 100
+	max_regiments = 1
+
+	counters = {
+		heavy_infantry = 1
+		pikemen = 1
+		skirmishers = 1
+	}
+
+	terrain_bonus = {
+		plains = { damage = 15 }
+		hills = { damage = 15 }
+		forest = { damage = 15 }
+		mountains = { damage = -10 }
+	}
+
+	siege_value = 0.1
+	siege_tier = 1
+
+	buy_cost = { gold = 60 }
+	low_maintenance_cost = { gold = 0.75 }
+	high_maintenance_cost = { gold = 2.5 }
+	provision_cost = @provisions_cost_supreme_archers
+
+	allowed_in_hired_troops = no
+	ai_quality = { value = 0 }
+
+	icon = archers
+
+	illustration = {
+		trigger = {
+			should_use_asian_maa_graphics = yes
+		}
+		reference = archers_asia
+	}
+
+	illustration = {
+		reference = archers
+	}
+}
+
+# Optional fourth archetype — Elephants (game rule sw_rule_fourth_archetype_elephants).
+supreme_elephants = {
+	type = elephant_cavalry
+
+	can_recruit = {
+		is_ai = no
+		has_game_rule = sw_rule_fourth_archetype_elephants
+	}
+
+	damage = 480
+	toughness = 200
+	pursuit = 35
+	screen = 25
+
+	stack = 25
+	max_regiments = 1
+
+	counters = {
+		archers = 1
+		heavy_infantry = 1
+		light_cavalry = 1
+		skirmishers = 1
+	}
+
+	terrain_bonus = {
+		jungle = { damage = 20 }
+		plains = { damage = 20 }
+		farmlands = { damage = 20 }
+		mountains = { damage = -50 }
+		desert_mountains = { damage = -50 }
+		wetlands = { damage = -60 toughness = -10 pursuit = -10 }
+	}
+
+	winter_bonus = {
+		normal_winter = { damage = -10 toughness = -5 }
+		harsh_winter = { damage = -20 toughness = -10 }
+	}
+
+	siege_value = 0.3
+	siege_tier = 2
+
+	buy_cost = { gold = 100 }
+	low_maintenance_cost = { gold = 2 }
+	high_maintenance_cost = { gold = 5 }
+	provision_cost = @provisions_cost_supreme_elephants
+
+	allowed_in_hired_troops = no
+	ai_quality = { value = 0 }
+
+	icon = elephant_cavalry
+
+	illustration = {
+		reference = elephant_cavalry
+	}
+}
+
+# Optional fourth archetype — Camels (game rule sw_rule_fourth_archetype_camel).
+supreme_camels = {
+	type = camel_cavalry
+
+	can_recruit = {
+		is_ai = no
+		has_game_rule = sw_rule_fourth_archetype_camel
+	}
+
+	damage = 350
+	toughness = 140
+	pursuit = 45
+	screen = 30
+
+	stack = 50
+	max_regiments = 1
+
+	counters = {
+		light_cavalry = 1
+		archers = 1
+		skirmishers = 1
+	}
+
+	terrain_bonus = {
+		desert = { damage = 30 }
+		drylands = { damage = 30 }
+		oasis = { damage = 30 }
+		wetlands = { damage = -40 toughness = -10 }
+		mountains = { damage = -30 }
+	}
+
+	siege_value = 0.15
+	siege_tier = 1
+
+	buy_cost = { gold = 70 }
+	low_maintenance_cost = { gold = 1 }
+	high_maintenance_cost = { gold = 3 }
+	provision_cost = @provisions_cost_supreme_camels
+
+	allowed_in_hired_troops = no
+	ai_quality = { value = 0 }
+
+	icon = camel_cavalry
+
+	illustration = {
+		reference = camel_cavalry
 	}
 }

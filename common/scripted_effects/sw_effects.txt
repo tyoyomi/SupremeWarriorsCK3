@@ -1,0 +1,26 @@
+# Supreme Warriors — banner sync (roster count > 0 of any elite type).
+
+sw_sync_warriors_banner_effect = {
+	if = {
+		limit = {
+			is_ai = no
+			is_alive = yes
+			sw_owns_any_elite_maa_trigger = yes
+		}
+		if = {
+			limit = {
+				NOT = { has_character_modifier = sw_warriors_banner_modifier }
+			}
+			add_character_modifier = {
+				modifier = sw_warriors_banner_modifier
+				days = -1
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_character_modifier = sw_warriors_banner_modifier
+		}
+		remove_character_modifier = sw_warriors_banner_modifier
+	}
+}

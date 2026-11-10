@@ -1,0 +1,26 @@
+# Supreme Warriors — shared elite MAA ownership gate (doctrines + banner).
+
+sw_owns_any_elite_maa_trigger = {
+	OR = {
+		number_maa_regiments_of_type = {
+			target = supreme_warriors
+			value >= 1
+		}
+		number_maa_regiments_of_type = {
+			target = supreme_riders
+			value >= 1
+		}
+		number_maa_regiments_of_type = {
+			target = supreme_archers
+			value >= 1
+		}
+		number_maa_regiments_of_type = {
+			target = supreme_elephants
+			value >= 1
+		}
+		number_maa_regiments_of_type = {
+			target = supreme_camels
+			value >= 1
+		}
+	}
+}

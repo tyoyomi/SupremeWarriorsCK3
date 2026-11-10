@@ -1,0 +1,10 @@
+﻿# Supreme Warriors — permanent Stand doctrine (defense / casualty / knight tandem).
+
+sw_warrior_stand_modifier = {
+	icon = martial_positive
+	advantage = 15
+	maa_toughness_mult = 0.30
+	levy_toughness_mult = 0.15
+	hard_casualty_modifier = -0.40
+	knight_effectiveness_mult = 0.75
+}

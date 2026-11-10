@@ -1,0 +1,15 @@
+# Supreme Warriors — append-only monthly banner sync (playable characters only).
+
+monthly_playable_pulse = {
+	on_actions = { sw_on_monthly_pulse }
+}
+
+sw_on_monthly_pulse = {
+	trigger = {
+		is_alive = yes
+		is_ai = no
+	}
+	effect = {
+		sw_sync_warriors_banner_effect = yes
+	}
+}
