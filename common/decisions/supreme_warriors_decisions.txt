@@ -1,14 +1,15 @@
-﻿# Player convenience: muster one Supreme Warriors regiment without Military UI grind.
-# Cavalry (supreme_riders) and optional fourth archetype remain Military UI only.
+ï»¿# Supreme Warriors â€” Actions hub (suite major-decisions collapse).
+# Muster + doctrine wrappers removed from the decisions list;
+# they are options on sw_actions.1001.
 
-supreme_muster_warriors_decision = {
+sw_warriors_actions_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
 	}
-	decision_group_type = major
-	desc = supreme_muster_warriors_decision_desc
-	selection_tooltip = supreme_muster_warriors_decision_tooltip
-	confirm_text = supreme_muster_warriors_decision_confirm
+	decision_group_type = sw_warriors
+	desc = sw_warriors_actions_decision_desc
+	selection_tooltip = sw_warriors_actions_decision_tooltip
+	confirm_text = sw_warriors_actions_decision_confirm
 
 	ai_check_interval = 0
 
@@ -19,159 +20,14 @@ supreme_muster_warriors_decision = {
 	}
 
 	is_valid = {
-		number_maa_regiments_of_type = {
-			target = supreme_warriors
-			value < 3
-		}
-	}
-
-	cost = {
-		gold = 50
+		always = yes
 	}
 
 	effect = {
-		create_maa_regiment = {
-			type = supreme_warriors
-			check_can_recruit = no
-			size = 1
-		}
-		sw_sync_warriors_banner_effect = yes
+		custom_tooltip = sw_warriors_actions_decision_effect_tt
+		trigger_event = sw_actions.1001
 	}
 
-	ai_potential = {
-		always = no
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-# Permanent army mobility doctrine (land + sea/embark). One-shot via modifier gate.
-
-sw_warrior_mobility_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
-	}
-	decision_group_type = major
-	desc = sw_warrior_mobility_decision_desc
-	selection_tooltip = sw_warrior_mobility_decision_tooltip
-	confirm_text = sw_warrior_mobility_decision_confirm
-
-	ai_check_interval = 0
-
-	is_shown = {
-		is_alive = yes
-		is_ai = no
-		is_ruler = yes
-		NOT = { has_character_modifier = sw_warrior_mobility_modifier }
-		sw_owns_any_elite_maa_trigger = yes
-	}
-
-	is_valid = {
-		NOT = { has_character_modifier = sw_warrior_mobility_modifier }
-		sw_owns_any_elite_maa_trigger = yes
-	}
-
-	effect = {
-		add_character_modifier = {
-			modifier = sw_warrior_mobility_modifier
-			days = -1
-		}
-		sw_sync_warriors_banner_effect = yes
-	}
-
-	ai_potential = {
-		always = no
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-# Permanent siege speed + supply immunity doctrine. One-shot via modifier gate.
-
-sw_warrior_siege_supply_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
-	}
-	decision_group_type = major
-	desc = sw_warrior_siege_supply_decision_desc
-	selection_tooltip = sw_warrior_siege_supply_decision_tooltip
-	confirm_text = sw_warrior_siege_supply_decision_confirm
-
-	ai_check_interval = 0
-
-	is_shown = {
-		is_alive = yes
-		is_ai = no
-		is_ruler = yes
-		NOT = { has_character_modifier = sw_warrior_siege_supply_modifier }
-		sw_owns_any_elite_maa_trigger = yes
-	}
-
-	is_valid = {
-		NOT = { has_character_modifier = sw_warrior_siege_supply_modifier }
-		sw_owns_any_elite_maa_trigger = yes
-	}
-
-	effect = {
-		add_character_modifier = {
-			modifier = sw_warrior_siege_supply_modifier
-			days = -1
-		}
-		sw_sync_warriors_banner_effect = yes
-	}
-
-	ai_potential = {
-		always = no
-	}
-
-	ai_will_do = {
-		base = 0
-	}
-}
-
-# Permanent Stand doctrine (defense / casualty / knight tandem). One-shot via modifier gate.
-
-sw_warrior_stand_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
-	}
-	decision_group_type = major
-	desc = sw_warrior_stand_decision_desc
-	selection_tooltip = sw_warrior_stand_decision_tooltip
-	confirm_text = sw_warrior_stand_decision_confirm
-
-	ai_check_interval = 0
-
-	is_shown = {
-		is_alive = yes
-		is_ai = no
-		is_ruler = yes
-		NOT = { has_character_modifier = sw_warrior_stand_modifier }
-		sw_owns_any_elite_maa_trigger = yes
-	}
-
-	is_valid = {
-		NOT = { has_character_modifier = sw_warrior_stand_modifier }
-		sw_owns_any_elite_maa_trigger = yes
-	}
-
-	effect = {
-		add_character_modifier = {
-			modifier = sw_warrior_stand_modifier
-			days = -1
-		}
-		sw_sync_warriors_banner_effect = yes
-	}
-
-	ai_potential = {
-		always = no
-	}
-
-	ai_will_do = {
-		base = 0
-	}
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
 }

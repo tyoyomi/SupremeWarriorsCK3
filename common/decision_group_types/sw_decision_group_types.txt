@@ -1,0 +1,7 @@
+# Supreme Warriors — custom decision group (additive; does not replace vanilla major)
+
+sw_warriors = {
+	sort_order = 191
+	gui_tags = { big_button }
+	important_decision_group = yes
+}
